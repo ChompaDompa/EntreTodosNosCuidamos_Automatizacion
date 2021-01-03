@@ -1,0 +1,243 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.util.Calendar;
+
+public class EntreTodosNosCuidamos {
+
+    public static void main(String[] args) {
+        /*
+        Calendar calendario = Calendar.getInstance();
+
+        int hora;
+
+        hora = calendario.get(Calendar.HOUR_OF_DAY);
+
+        if(hora < 12){
+            formularioDiurno();
+        }else{
+            formularioNocturno();
+        }
+         */
+
+        formularioDiurno();
+        formularioNocturno();
+
+    }
+
+    public static void formularioDiurno() {
+        System.setProperty("webdriver.gecko.driver", "C:\\Users\\Masters PC\\Documents\\geckodriver.exe");
+
+        WebDriver driver = new FirefoxDriver();
+        driver.get("https://forms.office.com/Pages/ResponsePage.aspx?id=shcarzRdWE-LbGuUxs2H6na7G_yvurFPlz9vfU06VY5UMUpDMjFTQVpQT0k0WEdUMVFJWklVSjE4VS4u");
+
+        try {
+            Thread.sleep(1000);
+            //Acepto
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[1]/div/div[2]/div/div[1]/div/label/input")).click();
+            //Genero
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div/div/i")).click();
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div/ul/li[1]")).click();
+            //Tipo de documento
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[3]/div/div[2]/div/div/div/i")).click();
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[3]/div/div[2]/div/div/ul/li[1]")).click();
+            //Número de documento
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[4]/div/div[2]/div/div/input")).sendKeys("1035440746");
+            //Nombre completo
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[5]/div/div[2]/div/div/input")).sendKeys("John Bayron Rivera Morales");
+            //Ciudad
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[6]/div/div[2]/div/div/input")).sendKeys("Medellin");
+            //Proyecto al que pertenece
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[7]/div/div[2]/div/div/div/i")).click();
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[7]/div/div[2]/div/div/ul/li[5]/div/span")).click();
+            //Teléfono de contacto
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[8]/div/div[2]/div/div/input")).sendKeys("3235648422");
+            //Toma de temperatura
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[9]/div/div[2]/div/div[1]/div/label/input")).click();
+            //10
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[10]/div/div[2]/div/div[2]/div/label/input")).click();
+            //11
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[11]/div/div[2]/div/div[2]/div/label/input")).click();
+            //12
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[12]/div/div[2]/div/div[2]/div/label/input")).click();
+            //13
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[13]/div/div[2]/div/div[2]/div/label/input")).click();
+            //14
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[14]/div/div[2]/div/div[8]/div/label/input")).click();
+            //15
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[15]/div/div[2]/div/div[2]/div/label/input")).click();
+            //16
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[16]/div/div[2]/div/div[2]/div/label/input")).click();
+            //17
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[17]/div/div[2]/div/div[3]/div/label/input")).click();
+            //18
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[18]/div/div[2]/div/div/div/i")).click();
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[18]/div/div[2]/div/div/ul/li[1]")).click();
+            //19
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[19]/div/div[2]/div/div/input")).sendKeys(temperatura());
+            //Enviar
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[3]/div[1]/button/div")).click();
+            Thread.sleep(5000);
+            //Enviar de neuvo
+            driver.findElement(By.xpath("//*[@id=\"form-container\"]/div/div/div/div/div[2]/div[2]/div[2]/a")).click();
+
+            //Acepto
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[1]/div/div[2]/div/div[1]/div/label/input")).click();
+            //Genero
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div/div/i")).click();
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div/ul/li[1]")).click();
+            //Tipo de documento
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[3]/div/div[2]/div/div/div/i")).click();
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[3]/div/div[2]/div/div/ul/li[1]")).click();
+            //Número de documento
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[4]/div/div[2]/div/div/input")).sendKeys("1152690931");
+            //Nombre completo
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[5]/div/div[2]/div/div/input")).sendKeys("Hipolito Mena Chaverra ");
+            //Ciudad
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[6]/div/div[2]/div/div/input")).sendKeys("Medellin");
+            //Proyecto al que pertenece
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[7]/div/div[2]/div/div/div/i")).click();
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[7]/div/div[2]/div/div/ul/li[5]/div/span")).click();
+            //Teléfono de contacto
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[8]/div/div[2]/div/div/input")).sendKeys("3206737216");
+            //Toma de temperatura
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[9]/div/div[2]/div/div[1]/div/label/input")).click();
+            //10
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[10]/div/div[2]/div/div[2]/div/label/input")).click();
+            //11
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[11]/div/div[2]/div/div[2]/div/label/input")).click();
+            //12
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[12]/div/div[2]/div/div[2]/div/label/input")).click();
+            //13
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[13]/div/div[2]/div/div[2]/div/label/input")).click();
+            //14
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[14]/div/div[2]/div/div[8]/div/label/input")).click();
+            //15
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[15]/div/div[2]/div/div[2]/div/label/input")).click();
+            //16
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[16]/div/div[2]/div/div[2]/div/label/input")).click();
+            //17
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[17]/div/div[2]/div/div[3]/div/label/input")).click();
+            //18
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[18]/div/div[2]/div/div/div/i")).click();
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[18]/div/div[2]/div/div/ul/li[1]")).click();
+            //19
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[19]/div/div[2]/div/div/input")).sendKeys(temperatura());
+            //Enviar
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[3]/div[1]/button/div")).click();
+            //Cerrar Firefox
+            Thread.sleep(5000);
+            driver.quit();
+        } catch (InterruptedException e) {
+            errorFormulario(e);
+        }
+
+    }
+
+    public static void formularioNocturno(){
+
+        System.setProperty("webdriver.gecko.driver", "C:\\Users\\Masters PC\\Documents\\geckodriver.exe");
+
+        WebDriver driver = new FirefoxDriver();
+        driver.get("https://forms.office.com/Pages/ResponsePage.aspx?id=shcarzRdWE-LbGuUxs2H6na7G_yvurFPlz9vfU06VY5UMUpDMjFTQVpQT0k0WEdUMVFJWklVSjE4VS4u");
+
+        try {
+
+            Thread.sleep(1000);
+            //Acepto
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[1]/div/div[2]/div/div[1]/div/label/input")).click();
+            //Genero
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div/div/i")).click();
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div/ul/li[1]")).click();
+            //Tipo de documento
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[3]/div/div[2]/div/div/div/i")).click();
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[3]/div/div[2]/div/div/ul/li[1]")).click();
+            //Número de documento
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[4]/div/div[2]/div/div/input")).sendKeys("1035440746");
+            //Nombre completo
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[5]/div/div[2]/div/div/input")).sendKeys("John Bayron Rivera Morales");
+            //Ciudad
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[6]/div/div[2]/div/div/input")).sendKeys("Medellin");
+            //Proyecto al que pertenece
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[7]/div/div[2]/div/div/div/i")).click();
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[7]/div/div[2]/div/div/ul/li[5]/div/span")).click();
+            //Teléfono de contacto
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[8]/div/div[2]/div/div/input")).sendKeys("3235648422");
+            //Toma de temperatura
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[9]/div/div[2]/div/div[2]/div/label/input")).click();
+            //Temperatura
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[10]/div/div[2]/div/div/input")).sendKeys(temperatura());
+            //Enviar
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[3]/div[1]/button/div")).click();
+            Thread.sleep(5000);
+            //Enviar de neuvo
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[2]/div[2]/div[2]/a")).click();
+
+
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[1]/div/div[2]/div/div[1]/div/label/input")).click();
+            //Genero
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div/div/i")).click();
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div/ul/li[1]")).click();
+            //Tipo de documento
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[3]/div/div[2]/div/div/div/i")).click();
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[3]/div/div[2]/div/div/ul/li[1]")).click();
+            //Número de documento
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[4]/div/div[2]/div/div/input")).sendKeys("1152690931");
+            //Nombre completo
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[5]/div/div[2]/div/div/input")).sendKeys("Hipolito Mena Chaverra ");
+            //Ciudad
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[6]/div/div[2]/div/div/input")).sendKeys("Medellin");
+            //Proyecto al que pertenece
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[7]/div/div[2]/div/div/div/i")).click();
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[7]/div/div[2]/div/div/ul/li[5]/div/span")).click();
+            //Teléfono de contacto
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[8]/div/div[2]/div/div/input")).sendKeys("3206737216");
+            //Toma de temperatura
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[9]/div/div[2]/div/div[2]/div/label/input")).click();
+            //Temperatura
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[2]/div[10]/div/div[2]/div/div/input")).sendKeys(temperatura());
+            //Enviar
+            driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[2]/div[3]/div[1]/button/div")).click();
+            //Cerrar Firefox
+            Thread.sleep(5000);
+            driver.quit();
+
+        }catch (InterruptedException e){
+            errorFormulario(e);
+        }
+    }
+
+    public static String temperatura(){
+        double max = 36.0, min = 34.0;
+        double number =  Math.round((Math.random() * (max - min) + min) * 10d ) / 10d;
+        String val = String.valueOf(number);
+        return val;
+    }
+
+    public static void errorFormulario(InterruptedException e){
+
+        try {
+            //Direccionamos el archivo a crear y le enviamos el mensaje de contenido
+            String adress = "C:\\Users\\Masters PC\\Desktop\\Entre_todos_nos_cuidamos_error.txt";
+            String contenido = "Error al diligenciar el formulario\n" + e;
+
+            File file = new File(adress);
+
+            // Si el archivo no existe es creado
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(contenido);
+            bw.close();
+
+        }catch (Exception ex){}
+
+    }
+
+}
